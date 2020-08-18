@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+Closure is the process of accessing private variables by outside functions or methods. When variables are created within functions, those variables can normally only be called within those functions. With closure, the information that would otherwise be private can be called.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +66,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+Closure is used in the personalDice function. The constant "newRoll" is a private variable within this function, but can be referenced upon calling the function.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+The name is always the same, but the value of "newRoll" will be recalculated every time the function is called.
+
 c. What is the lexical scope of `newRoll`? 
+
+It can only be used within the personalDice function.
 
 ### Task 2c - Exit Ticket
 
@@ -88,6 +99,8 @@ console.log("a defined? " + (typeof a !== 'undefined'));
 console.log("b defined? " + (typeof b !== 'undefined'));
 ```
 
+a is undefined whereas b is defined. B is not preceded by "var", making it a global variable. a is a local variable and cannot be called outside of the function.
+
 2. Write a function that would allow you to do this using a closure. (This is another interview question we've seen before - when you're ready for answers, view an explanation [here](https://www.coderbyte.com/algorithm/3-common-javascript-closure-questions)).
 
 ```js
@@ -98,6 +111,8 @@ addSix(21); // returns 27
 
 3. Research the differences between functional programming and object oriented programming. Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!
 
+Object oriented programing focuses on objects separated into classes each with their own set of functions and tasks. An analogy of this would be a video game where objects are spawned in and each execute their own list of instructions. Functional programming focuses on having functions which call other functions in order to execute commands. 
+For website development, functional programming is preferable in my opinion as it deals heavily with variables (such as user data) and functions (such as requests and permissions). 
 ## Resources
 
 📚 [Scope and Closures Guide](https://css-tricks.com/javascript-scope-closures/)
