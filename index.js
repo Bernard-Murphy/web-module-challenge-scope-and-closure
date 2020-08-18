@@ -28,10 +28,15 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * Counter1 creates a counter that uses a variable "count" that is local to the function that increments it every pass. Counter2's function does the same thing, but it uses a global variable "count" instead of a local.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
+ * Counter1 uses closure because it uses a variable that is local to the function.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
+ * Counter1 would be preferable in a code with multiple counter functions or any code where "count" would be desired as a variable name more than once. Counter2 would be preferable in a code where "count" is only expected to be used once. 
 */
 
 // counter1 code
@@ -56,11 +61,12 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
+  return (Math.floor((Math.random() * 3)));
 
 }
+
 
 /* Task 3: finalScore()
 
@@ -76,9 +82,20 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(func, num){
 
-  /*Code Here*/
+  retObject = {
+    "Home": 0,
+    "Away": 0
+  }
+
+
+  for (i = 0; i < num; i++){
+      retObject.Home += func();
+      retObject.Away += func();
+  }
+
+  return retObject;
 
 }
 
@@ -103,7 +120,8 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
+
+function scoreboard(inningScoreFunc, inningFunc, num) {
   /* CODE HERE */
 }
 
