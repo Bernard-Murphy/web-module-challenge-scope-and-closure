@@ -67,6 +67,8 @@ function inning(){
 
 }
 
+console.log(inning());
+
 
 /* Task 3: finalScore()
 
@@ -83,7 +85,6 @@ finalScore(inning, 9) might return:
 */ 
 
 function finalScore(func, num){
-
   retObject = {
     "Home": 0,
     "Away": 0
@@ -95,9 +96,11 @@ function finalScore(func, num){
       retObject.Away += func();
   }
 
-  return retObject;
+  return retObject
 
 }
+
+console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
@@ -119,10 +122,34 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
-
+function getInningScore(func){
+  let home = func();
+  let away = func();
+  return [home, away]
+}
 
 function scoreboard(inningScoreFunc, inningFunc, num) {
-  /* CODE HERE */
+  let scoreboard = [];
+  let awayTally = 0;
+  let homeTally = 0;
+  for (let i = 1; i < num + 1; i++){
+    let score = inningScoreFunc(inningFunc);
+    awayTally += score[0];
+    homeTally += score[1];
+    if (i === 1){
+      scoreboard.push(`${i}st inning: ${score[0]} - ${score[1]}`);
+    } else if (i === 2 ){
+      scoreboard.push(`${i}nd inning: ${score[0]} - ${score[1]}`);
+    } else if (i === 3){
+      scoreboard.push(`${i}rd inning: ${score[0]} - ${score[1]}`);
+    } else {
+      scoreboard.push(`${i}th inning: ${score[0]} - ${score[1]}`);
+    }
+    
+  }
+  scoreboard.push(`Final Score: ${awayTally} - ${homeTally}`);
+  return scoreboard
 }
 
 
+console.log(scoreboard(getInningScore, inning, 9));
