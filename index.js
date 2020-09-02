@@ -61,7 +61,7 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(){
+const inning = () => {
 
   return (Math.floor((Math.random() * 3)));
 
@@ -122,7 +122,7 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
-function getInningScore(func){
+const  getInningScore = (func) => {
   let home = func();
   let away = func();
   return [home, away]
